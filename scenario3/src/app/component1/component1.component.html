@@ -1,0 +1,9 @@
+<h2>This is component 1</h2>
+<div>
+  <label>NAME :
+    <input type="text" placeholder="name" id="myText" [(ngModel)]="value">
+  </label>
+  <button (click) = "onSubmit(value)" routerLink="/component2">Submit</button> 
+</div>
+<app-component2 [message]= Message></app-component2>
+
