@@ -1,24 +1,24 @@
-import { Component1Service } from './component1/component1.service';
+import { SharedServiceService } from './../sharedService/shared-service.service';
 
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Injectable } from '@angular/core';
 @Component({
   selector: 'app-component1',
   templateUrl: './component1.component.html',
   styleUrls: ['./component1.component.css']
 })
+@Injectable()
 export class Component1Component implements OnInit  {
 
   Message : string
-  constructor(private component1Service:Component1Service) {
+  constructor(private sharedService:SharedServiceService) {
    }
 
   ngOnInit() {
+    this.sharedService.currentMessage.subscribe(message => this.Message = message);
   }
   onSubmit(value){
-    this.component1Service.setData(value);
-    console.log(this.component1Service.getData());
-    this.Message = value;
+    this.sharedService.setMessage(value);
+    console.log(value);
     }
 
 }

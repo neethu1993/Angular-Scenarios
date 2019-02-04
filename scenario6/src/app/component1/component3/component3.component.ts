@@ -1,5 +1,5 @@
+import { SharedServiceService } from 'src/app/sharedService/shared-service.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { Component1Service } from '../component1/component1.service';
 
 @Component({
   selector: 'app-component3',
@@ -8,13 +8,11 @@ import { Component1Service } from '../component1/component1.service';
 })
 export class Component3Component implements OnInit {
 
-  @Input() message : string
-  constructor(private component1Service:Component1Service) { }
+   message : string
+  constructor(private sharedService:SharedServiceService) { }
 
   ngOnInit() {
-  }
-  test(message){
-    console.log(message);
+    this.sharedService.currentMessage.subscribe(message => this.message = message);
   }
 
 }

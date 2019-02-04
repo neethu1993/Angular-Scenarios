@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Component1Service } from './component1.service';
+import { SharedServiceService } from './shared-service.service';
 
-describe('Component1Service', () => {
+describe('SharedServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: Component1Service = TestBed.get(Component1Service);
+    const service: SharedServiceService = TestBed.get(SharedServiceService);
     expect(service).toBeTruthy();
   });
 });
