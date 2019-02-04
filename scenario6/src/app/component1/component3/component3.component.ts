@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Component1Service } from '../component1/component1.service';
 
 @Component({
   selector: 'app-component3',
@@ -8,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class Component3Component implements OnInit {
 
   @Input() message : string
-  constructor() { }
+  constructor(private component1Service:Component1Service) { }
 
   ngOnInit() {
   }

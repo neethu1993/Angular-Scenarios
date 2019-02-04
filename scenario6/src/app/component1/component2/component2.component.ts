@@ -1,3 +1,4 @@
+import { Component1Service } from './../component1/component1.service';
 import { Component3Component } from './../component3/component3.component';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -7,10 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./component2.component.css']
 })
 export class Component2Component implements OnInit {
-  @Input() message : string 
-  constructor() { this.message=this.message;
+  @Input() message : any 
+  constructor(private component1Service:Component1Service) { 
+    this.message = this.component1Service.getData();
+    console.log(this.message);
   }
   ngOnInit() {
-    console.log(this.message);
+    // this.message = this.component1Service.getData();
+    // console.log(this.message);
   }
 }

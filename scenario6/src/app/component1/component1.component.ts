@@ -1,3 +1,4 @@
+import { Component1Service } from './component1/component1.service';
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -9,13 +10,14 @@ import { Router } from '@angular/router';
 export class Component1Component implements OnInit  {
 
   Message : string
-  constructor() {
+  constructor(private component1Service:Component1Service) {
    }
 
   ngOnInit() {
   }
   onSubmit(value){
-    console.log(value);
+    this.component1Service.setData(value);
+    console.log(this.component1Service.getData());
     this.Message = value;
     }
 
